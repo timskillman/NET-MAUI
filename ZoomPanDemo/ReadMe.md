@@ -6,4 +6,4 @@ Demonstrates a simple Zoom Pan class that zooms the scene using middle mouse whe
 
 Please load in VS2022 Preview
 
-![alt text](https://github.com/timskillman/NET-MAUI/blob/master/ZoomPanDemo/ZoomPanDemo/Images/screenshot.jpg "Pi3C Logo")
+![alt text](https://github.com/timskillman/NET-MAUI/tree/main/ZoomPanDemo/ZoomPanDemo/Images/Screenshot.jpg "Pi3C Logo")
