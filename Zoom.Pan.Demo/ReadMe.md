@@ -1,7 +1,11 @@
 # .NET MAUI Zoom Pan demo
 
 
-Demonstrates a simple Zoom Pan class that zooms the scene using middle mouse wheel and click-drag left mouse button to pan.
+Demonstrates a simple Zoom Pan class that zoom and pans the scene;
+
+- Windows - Click/drag left mouse button to pan. Mousewheel to zoom.
+- 
+- Android/iOS - Single touch/drag to pan. Two-finger drag to zoom and pan.  (option to turn off single drag pan)
 
 Mouse and Touch screen supported. 
 
