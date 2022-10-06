@@ -12,6 +12,28 @@ Mouse and Touch screen supported.
 
 # Example code
 
+Example 'MainPage.xaml'
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
+             x:Class="ZoomPanDemo.MainPage">
+
+    <Grid RowDefinitions="*" >
+        <skia:SKCanvasView Grid.Row="0" x:Name="canvasView" 
+                PaintSurface="OnPaintSurface"
+                Touch="OnTouch" 
+                EnableTouchEvents="True">
+        </skia:SKCanvasView>
+    </Grid>
+
+</ContentPage>
+```
+
+Example code in 'MainPage.xaml.cs'
+
 ```
     using SkiaSharp;
     using SkiaSharp.Views.Maui;
@@ -86,25 +108,6 @@ Mouse and Touch screen supported.
     }
 ```
 
-Example 'MainPage.xaml'
-
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
-             x:Class="ZoomPanDemo.MainPage">
-
-    <Grid RowDefinitions="*" >
-        <skia:SKCanvasView Grid.Row="0" x:Name="canvasView" 
-                PaintSurface="OnPaintSurface"
-                Touch="OnTouch" 
-                EnableTouchEvents="True">
-        </skia:SKCanvasView>
-    </Grid>
-
-</ContentPage>
-```
 
 # Dependencies
 
