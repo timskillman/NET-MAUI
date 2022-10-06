@@ -13,6 +13,11 @@ Mouse and Touch screen supported.
 # Example code
 
 ```
+    using SkiaSharp;
+    using SkiaSharp.Views.Maui;
+
+    ...
+
     private ZoomPan zoomPan = new ZoomPan();
     private SKPath path = new SKPath();
     
