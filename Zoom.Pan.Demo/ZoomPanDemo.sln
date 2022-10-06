@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZoomPanDemo", "ZoomPanDemo\ZoomPanDemo.csproj", "{CC1A88EE-D742-4A3C-B5A6-C2D7B5026D03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZoomPanDemo", "ZoomPanDemo\ZoomPanDemo.csproj", "{64862EFF-8A6B-4719-89C5-FCE8D0171285}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC1A88EE-D742-4A3C-B5A6-C2D7B5026D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC1A88EE-D742-4A3C-B5A6-C2D7B5026D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC1A88EE-D742-4A3C-B5A6-C2D7B5026D03}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{CC1A88EE-D742-4A3C-B5A6-C2D7B5026D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC1A88EE-D742-4A3C-B5A6-C2D7B5026D03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC1A88EE-D742-4A3C-B5A6-C2D7B5026D03}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{64862EFF-8A6B-4719-89C5-FCE8D0171285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64862EFF-8A6B-4719-89C5-FCE8D0171285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64862EFF-8A6B-4719-89C5-FCE8D0171285}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{64862EFF-8A6B-4719-89C5-FCE8D0171285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64862EFF-8A6B-4719-89C5-FCE8D0171285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64862EFF-8A6B-4719-89C5-FCE8D0171285}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

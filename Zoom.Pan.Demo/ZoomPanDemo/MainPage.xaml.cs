@@ -19,7 +19,7 @@ public partial class MainPage : ContentPage
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
-        zoomPan.ZoomToRect(new SKRect(0, 0, (float)width, (float)height), new SKRect(path.Bounds.Left - 10, path.Bounds.Top - 10, path.Bounds.Right + 10, path.Bounds.Bottom + 10));
+        zoomPan.ZoomToRect(new SKRect(0, 0, (float)canvasView.Width, (float)canvasView.Height), new SKRect(path.Bounds.Left - 10, path.Bounds.Top - 10, path.Bounds.Right + 10, path.Bounds.Bottom + 10));
     }
 
     private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
@@ -35,19 +35,38 @@ public partial class MainPage : ContentPage
 
     private void OnTouch(object sender, SKTouchEventArgs e)
     {
-        switch (e.ActionType)
+        switch (e.DeviceType)
         {
-            case SKTouchAction.Moved:
-                e.Handled = e.MouseButton == SKMouseButton.Left;
-                zoomPan.MovePan(e.Location, e.Handled);
+            case SKTouchDeviceType.Touch:
+                System.Diagnostics.Debug.WriteLine(e.ActionType);
+                switch (e.ActionType)
+                {
+                    case SKTouchAction.Pressed:
+                        zoomPan.TouchPressed(e);
+                        break;
+                    case SKTouchAction.Moved:
+                        zoomPan.TouchZoomDrag(e, singlePointDrag: true);
+                        break;
+                    case SKTouchAction.Released:
+                        zoomPan.TouchReset(e);
+                        break;
+                }
                 break;
+            case SKTouchDeviceType.Mouse:
+                switch (e.ActionType)
+                {
+                    case SKTouchAction.Moved:
+                        zoomPan.MousePan(e.Location, e.MouseButton == SKMouseButton.Left);
+                        e.Handled = true;
+                        break;
 
-            case SKTouchAction.WheelChanged:
-                zoomPan.Zoom(e.Location, e.WheelDelta / 500f);
-                e.Handled = true;
+                    case SKTouchAction.WheelChanged:
+                        zoomPan.MouseZoom(e.Location, e.WheelDelta / 500f);
+                        e.Handled = true;
+                        break;
+                }
                 break;
         }
-
         if (e.Handled) canvasView.InvalidateSurface();
     }
 }
