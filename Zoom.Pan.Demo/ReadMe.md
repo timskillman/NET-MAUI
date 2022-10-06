@@ -13,7 +13,7 @@ Mouse and Touch screen supported.
 # Example code
 
 ```
-    private ZoomPan zoomPan = new ZoomPan(5f);
+    private ZoomPan zoomPan = new ZoomPan();
     private SKPath path = new SKPath();
     
     public MainPage()
