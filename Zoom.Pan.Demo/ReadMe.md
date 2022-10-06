@@ -35,10 +35,13 @@ Example 'MainPage.xaml'
 Example code in 'MainPage.xaml.cs'
 
 ```
-    using SkiaSharp;
-    using SkiaSharp.Views.Maui;
+using SkiaSharp;
+using SkiaSharp.Views.Maui;
 
-    ...
+namespace ZoomPanDemo;
+
+public partial class MainPage : ContentPage
+{
 
     private ZoomPan zoomPan = new ZoomPan();
     private SKPath path = new SKPath();
@@ -106,6 +109,7 @@ Example code in 'MainPage.xaml.cs'
         }
         if (e.Handled) canvasView.InvalidateSurface();
     }
+}
 ```
 
 
