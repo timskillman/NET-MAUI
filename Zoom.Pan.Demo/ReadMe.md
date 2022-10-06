@@ -93,5 +93,5 @@ Example 'MainPage.xaml'
 # Dependencies
 
 - SkiaSharp
-- SkiaSharp.Views.MAui.Controls
+- SkiaSharp.Views.Maui.Controls
 
