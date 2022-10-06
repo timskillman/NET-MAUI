@@ -32,7 +32,7 @@ Example 'MainPage.xaml'
 </ContentPage>
 ```
 
-Example code in 'MainPage.xaml.cs'
+Example code in 'MainPage.xaml.cs' using the ZoomPan.cs class (in example project)
 
 ```c#
 using SkiaSharp;
