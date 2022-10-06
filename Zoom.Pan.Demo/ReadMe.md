@@ -1,4 +1,4 @@
-# .NET MAUI Zoom Pan demo
+# .NET MAUI Zoom Pan demo using SkiaSharp SKCanvas
 
 
 Demonstrates a simple Zoom Pan class that zooms and pans the scene;
