@@ -13,6 +13,17 @@ Mouse and Touch screen supported.
 # Example code
 
 ```
+    private ZoomPan zoomPan = new ZoomPan(5f);
+    private SKPath path = new SKPath();
+    
+    public MainPage()
+    {
+        InitializeComponent();
+        string svg = "M 100,100, .... z" //Some SVG path data goes here
+        
+        path = SKPath.ParseSvgPathData(svg);
+    }
+    
     protected override void OnSizeAllocated(double width, double height)
     {
         //Zooms and pans the SKPath object to fit inside the full width of the canvas on startup
