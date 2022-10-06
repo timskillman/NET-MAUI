@@ -8,7 +8,7 @@ Demonstrates a simple Zoom Pan class that zooms and pans the scene;
 
 Mouse and Touch screen supported. 
 
-![alt text](https://github.com/timskillman/NET-MAUI/blob/main/Zoom.Pan.Demo/ZoomPanDemo/Images/Screenshot.jpg "Screenshot")
+![alt text](https://github.com/timskillman/NET-MAUI/blob/main/Zoom.Pan.Demo/ZoomPanDemo/Images/WorldMap.jpg "World map taken from simplemaps.com")
 
 # Example code
 
