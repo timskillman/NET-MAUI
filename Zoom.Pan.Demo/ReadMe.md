@@ -34,7 +34,7 @@ Example 'MainPage.xaml'
 
 Example code in 'MainPage.xaml.cs'
 
-```
+```c#
 using SkiaSharp;
 using SkiaSharp.Views.Maui;
 
