@@ -50,7 +50,6 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
         string svg = "M 100,100, .... z" //Some SVG path data goes here
-        
         path = SKPath.ParseSvgPathData(svg);
     }
     
@@ -64,11 +63,8 @@ public partial class MainPage : ContentPage
     private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
     {
         SKCanvas canvas = e.Surface.Canvas;
-
         canvas.SetMatrix(zoomPan.GetMatrix());   //Get the resultant matrix from ZoomPan class and set to Canvas
-
         SKPaint paint = new SKPaint { Color = SKColors.PaleVioletRed, Style = SKPaintStyle.Stroke, IsAntialias = true };
-
         canvas.Clear();
         canvas.DrawPath(path, paint);
     }
