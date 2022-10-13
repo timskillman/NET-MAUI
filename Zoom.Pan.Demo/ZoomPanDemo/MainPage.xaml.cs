@@ -5,7 +5,7 @@ namespace ZoomPanDemo;
 
 public partial class MainPage : ContentPage
 {
-    private ZoomPan zoomPan = new ZoomPan(5f);
+    private ZoomPan zoomPan = new ZoomPan();
     private SKPath path = new SKPath();
     public MainPage()
     {
@@ -41,38 +41,13 @@ public partial class MainPage : ContentPage
 
     private void OnTouch(object sender, SKTouchEventArgs e)
     {
-        switch (e.DeviceType)
+        if (zoomPan.DoZoomPan(e,SKMouseButton.Middle, 5000f))
         {
-            case SKTouchDeviceType.Touch:
-                System.Diagnostics.Debug.WriteLine(e.ActionType);
-                switch (e.ActionType)
-                {
-                    case SKTouchAction.Pressed:
-                        zoomPan.TouchPressed(e);
-                        break;
-                    case SKTouchAction.Moved:
-                        zoomPan.TouchZoomDrag(e, singlePointDrag: true);
-                        break;
-                    case SKTouchAction.Released:
-                        zoomPan.TouchReset(e);
-                        break;
-                }
-                break;
-            case SKTouchDeviceType.Mouse:
-                switch (e.ActionType)
-                {
-                    case SKTouchAction.Moved:
-                        zoomPan.MousePan(e.Location, e.MouseButton == SKMouseButton.Left);
-                        e.Handled = true;
-                        break;
-
-                    case SKTouchAction.WheelChanged:
-                        zoomPan.MouseZoom(e.Location, e.WheelDelta / 500f);
-                        e.Handled = true;
-                        break;
-                }
-                break;
+            canvasView.InvalidateSurface();
         }
-        if (e.Handled) canvasView.InvalidateSurface();
+        else
+        {
+
+        }
     }
 }

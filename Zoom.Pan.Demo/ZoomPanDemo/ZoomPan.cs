@@ -1,12 +1,4 @@
-﻿/* Zoom Pan Class for .NET MAUI
- * ============================
- * v1.0.0
- * Tim Skillman (c) 2022
- * 
- * MIT license
- */
-
-using SkiaSharp;
+﻿using SkiaSharp;
 using SkiaSharp.Views.Maui;
 
 namespace ZoomPanDemo
@@ -44,7 +36,8 @@ namespace ZoomPanDemo
             Scale = viewRect.Width / zoomRect.Width;
             SKPoint centerPoint = new SKPoint(-zoomRect.Left * Scale, -zoomRect.Top * Scale);
             centerVec = centerPoint;
-            centerPix = VecToPix(centerPoint);
+            vecPoint = VecToPix(centerPoint);
+            centerPix = vecPoint;
         }
 
         public void TouchPressed(SKTouchEventArgs e)
@@ -113,10 +106,48 @@ namespace ZoomPanDemo
             e.Handled = true;
         }
 
+        public bool DoZoomPan(SKTouchEventArgs e, SKMouseButton button, float zoomFactor, bool singlePointDrag = true)
+        {
+            switch (e.DeviceType)
+            {
+                case SKTouchDeviceType.Touch:
+                    System.Diagnostics.Debug.WriteLine(e.ActionType);
+                    switch (e.ActionType)
+                    {
+                        case SKTouchAction.Pressed:
+                            TouchPressed(e);
+                            break;
+                        case SKTouchAction.Moved:
+                            TouchZoomDrag(e, singlePointDrag);
+                            break;
+                        case SKTouchAction.Released:
+                            TouchReset(e);
+                            break;
+                    }
+                    break;
+                case SKTouchDeviceType.Mouse:
+                    switch (e.ActionType)
+                    {
+                        case SKTouchAction.Moved:
+                            MousePan(e.Location, e.MouseButton == button);
+                            e.Handled = true;
+                            break;
+
+                        case SKTouchAction.WheelChanged:
+                            MouseZoom(e.Location, e.WheelDelta / zoomFactor);
+                            e.Handled = true;
+                            break;
+                    }
+                    break;
+            }
+            return e.Handled;
+        }
+
         private SKPoint VecToPix(SKPoint point)
         {
             return new SKPoint((point.X - centerVec.X) / Scale, (point.Y - centerVec.Y) / Scale) + centerPix;
         }
+
 
         private SKPoint centerVec = new SKPoint(0, 0);
         private SKPoint centerPix = new SKPoint(0, 0);
