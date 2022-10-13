@@ -41,7 +41,7 @@ public partial class MainPage : ContentPage
 
     private void OnTouch(object sender, SKTouchEventArgs e)
     {
-        if (zoomPan.DoZoomPan(e,SKMouseButton.Middle, 5000f))
+        if (zoomPan.DoZoomPan(e,SKMouseButton.Middle, 500f))
         {
             canvasView.InvalidateSurface();
         }
