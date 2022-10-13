@@ -1,7 +1,7 @@
 # .NET MAUI Zoom Pan demo using SkiaSharp SKCanvas
 
 
-Demonstrates a simple Zoom Pan class that zooms and pans the scene;
+Demonstrates a simple Zoom Pan class that zooms and pans the scene with just one-line zoom/pan function;
 
 - **Windows** - Click/drag left mouse button to pan. **Mousewheel** to zoom.
 - **Android/iOS** - Single touch/drag to pan. **Two-finger drag** to zoom and pan.  (option to turn off single drag pan)
@@ -50,7 +50,6 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
         string svg = "M 100,100, .... z" //Some SVG path data goes here
-        
         path = SKPath.ParseSvgPathData(svg);
     }
     
@@ -64,50 +63,18 @@ public partial class MainPage : ContentPage
     private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
     {
         SKCanvas canvas = e.Surface.Canvas;
-
         canvas.SetMatrix(zoomPan.GetMatrix());   //Get the resultant matrix from ZoomPan class and set to Canvas
-
         SKPaint paint = new SKPaint { Color = SKColors.PaleVioletRed, Style = SKPaintStyle.Stroke, IsAntialias = true };
-
         canvas.Clear();
         canvas.DrawPath(path, paint);
     }
 
     private void OnTouch(object sender, SKTouchEventArgs e)
     {
-        switch (e.DeviceType)
-        {
-            case SKTouchDeviceType.Touch:
-                System.Diagnostics.Debug.WriteLine(e.ActionType);
-                switch (e.ActionType)
-                {
-                    case SKTouchAction.Pressed:
-                        zoomPan.TouchPressed(e);
-                        break;
-                    case SKTouchAction.Moved:
-                        zoomPan.TouchZoomDrag(e, singlePointDrag: true);
-                        break;
-                    case SKTouchAction.Released:
-                        zoomPan.TouchReset(e);
-                        break;
-                }
-                break;
-            case SKTouchDeviceType.Mouse:
-                switch (e.ActionType)
-                {
-                    case SKTouchAction.Moved:
-                        zoomPan.MousePan(e.Location, e.MouseButton == SKMouseButton.Left);
-                        e.Handled = true;
-                        break;
-
-                    case SKTouchAction.WheelChanged:
-                        zoomPan.MouseZoom(e.Location, e.WheelDelta / 500f);
-                        e.Handled = true;
-                        break;
-                }
-                break;
+        //one-line zoom-pan function ... e.handled is set if function is used ...
+        if (zoomPan.DoZoomPan(e,SKMouseButton.Middle, 500f) {
+            canvasView.InvalidateSurface();
         }
-        if (e.Handled) canvasView.InvalidateSurface();
     }
 }
 ```
